@@ -1,0 +1,36 @@
+# AWS Configuration
+aws_region  = "us-east-1"
+aws_profile = "default"
+
+# Project Settings
+environment  = "production"
+project_name = "timothy-portfolio"
+
+# Domain Configuration
+domain_name = "timothyolubiyi.name.ng"
+
+# Route 53 Configuration
+# Set to false if using external DNS provider (not AWS Route 53)
+# If false, you'll need to manually create DNS records for certificate validation and CloudFront
+use_route53 = false
+
+# Certificate Configuration
+# Leave empty to create a new ACM certificate via Terraform
+# Or provide an existing certificate ARN: "arn:aws:acm:us-east-1:123456789:certificate/xxxxx"
+certificate_arn = ""
+
+# Cache Configuration (in seconds)
+cache_max_age_index  = 300           # 5 minutes - forces refresh on index.html changes
+cache_max_age_assets = 31536000      # 1 year - versioned filenames, rarely changes
+
+# Logging
+enable_logging = true
+
+# Resource Tags
+tags = {
+  Owner       = "Timothy Olubiyi"
+  Project     = "Portfolio & Blog"
+  ManagedBy   = "Terraform"
+  Environment = "Production"
+  Team        = "DevOps"
+}

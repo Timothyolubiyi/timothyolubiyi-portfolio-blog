@@ -1,0 +1,19 @@
+{
+  "name": "timothy-portfolio",
+  "version": "1.0.0",
+  "description": "Timothy Olubiyi Professional Portfolio & Blog",
+  "main": "index.html",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/ && cp style.css dist/ && cp script.js dist/ && cp -r images dist/",
+    "dev": "npx http-server . -p 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "devops",
+    "cloud",
+    "cybersecurity"
+  ],
+  "author": "Timothy Olubiyi",
+  "license": "MIT",
+  "devDependencies": {}
+}

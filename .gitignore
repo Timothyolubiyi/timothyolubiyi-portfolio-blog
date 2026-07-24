@@ -1,0 +1,41 @@
+# Build artifacts
+dist/
+build/
+node_modules/
+
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfplan
+terraform/.terraformrc
+terraform/terraform.rc
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Secrets
+*.pem
+*.key
+credentials.json
+
+# Local user configuration
+.claude/

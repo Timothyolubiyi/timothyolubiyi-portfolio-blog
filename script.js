@@ -36,6 +36,8 @@ if (navToggle) {
 
 // Close mobile menu when link is clicked
 const navLinks = document.querySelectorAll('.nav-link');
+const hamburger = document.querySelector(".hamburger");
+const navbar = document.querySelector(".navbar");
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -84,3 +86,5 @@ document.querySelectorAll('.competency-card, .project-card, .cert-item, .contact
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+

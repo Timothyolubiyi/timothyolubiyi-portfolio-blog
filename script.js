@@ -87,4 +87,75 @@ document.querySelectorAll('.competency-card, .project-card, .cert-item, .contact
     observer.observe(el);
 });
 
+// Skills Carousel
+const skillsCarousel = document.getElementById('skillsCarousel');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const indicatorsContainer = document.getElementById('indicators');
+
+if (skillsCarousel) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    // Create indicators
+    slides.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator';
+        if (index === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+    });
+
+    const indicators = document.querySelectorAll('.indicator');
+
+    function updateCarousel() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            indicators[index].classList.remove('active');
+        });
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateCarousel();
+        resetAutoSlide();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateCarousel();
+        resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+        resetAutoSlide();
+    }
+
+    function autoSlide() {
+        nextSlide();
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(autoSlide, 5000);
+    }
+
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    // Start auto-slide
+    autoSlideInterval = setInterval(autoSlide, 5000);
+
+    // Pause auto-slide on hover
+    if (skillsCarousel) {
+        skillsCarousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        skillsCarousel.addEventListener('mouseleave', resetAutoSlide);
+    }
+}
 

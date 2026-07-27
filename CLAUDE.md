@@ -454,3 +454,129 @@ This must be visible in browser screenshots submitted as proof of deployment.
 ## Out of Scope (for now)
 - Multi-user accounts — admin access is single-user (Timothy only)
 - Rich WYSIWYG editor for blog posts — start with Markdown input, upgrade later if needed
+
+...........................................................
+Do not edit or modify any existing files.
+
+This is for new web page content. Make it professional
+### Consulting Page 
+I have created consulting.html file.  Add professional Core services below to the page. Create Different sections for each services and Write a brief detailed write-up of one paragraph to give overview, scope and neccessity for the sercices in their organization. Image mark down show be provide to add images to each sub-sections.
+
+## Core Services
+
+# Enterprise Security 
+- Cloud Security Consulting
+- Vulnerability Assessment & Penetration Testing (VAPT)
+- DevSecOps Implementation
+- AWS Security & Architecture
+- Infrastructure Security Hardening
+- Linux Server Security
+- Network Security Assessment
+- Security Monitoring & SIEM
+- Identity & Access Management (IAM)
+- Security Compliance & Risk Assessment
+- Incident Response Planning
+- Secure Cloud Migration
+
+
+# Cloud & DevOps Services #
+- Cloud Infrastructure: Designing secure, scalable, and highly available cloud environments on AWS.
+- CI/CD Automation: Building automated pipelines with GitHub Actions, Jenkins, and GitLab CI/CD for faster, reliable software delivery.
+- Containerization & Kubernetes: Deploying and managing containerized applications using Docker, Kubernetes, and Amazon EKS.
+- Infrastructure as Code: Automating cloud infrastructure provisioning with Terraform and reusable infrastructure modules.
+- Linux Server Administration: Provisioning, securing, optimizing, and maintaining Linux servers for production workloads.
+- Monitoring & Observability: Implementing centralized logging, metrics, dashboards, and alerting using Prometheus, Grafana, and the ELK Stack.
+- DevSecOps: Embedding security throughout the software delivery lifecycle with secure CI/CD, vulnerability scanning, and cloud security best practices.
+- Application Deployment: Deploying modern web applications with Nginx, SSL/TLS, DNS, reverse proxies, and GitOps workflows using Argo CD.
+
+# Website Development & Hosting
+I Design, develop, deploy, and maintain secure, high-performance websites and web applications with modern technologies and cloud infrastructure.
+- Website Development: Corporate Website, Business Website and Portfolio Website Development
+- 
+- Website Hosting & Deployment: AWS EC2 Website Hosting, Nginx Web Server Configuration, Apache Web Server Configuration, CloudFront CDN Deployment, Domain & DNS Configuration, SSL/TLS Certificate Installation, and HTTPS Implementation
+- DevOps for Web Applications: CI/CD Pipeline for Websites, GitHub Actions Deployment, Dockerized Website Deployment, Kubernetes Website Deployment, Automated Deployment, Infrastructure as Code (Terraform), Blue-Green Deployment, Zero-Downtime Deployment
+- Website Security: Web Server Hardening, SSL Security, Security Headers Configuration, Firewall Configuration, DDoS Protection, Vulnerability Assessment, Secure Authentication, Regular Security Updates
+- Maintenance & Support: Website Maintenance, Backup & Disaster Recovery, Monitoring & Uptime Checks, Performance Monitoring, Security Monitoring, Bug Fixes, Content Updates, Technical Support
+
+# Email Hosting
+- Business Email Setup: Custom Domain Email Setup, Professional Business Email Creation, Mailbox Configuration, Email Account Migration, Email Alias Configuration, Shared Mailboxes, Distribution Lists, Catch-All Email Configuration
+- Domain & DNS Configuration: MX Record Configuration, SPF Record Setup, DKIM Configuration, DMARC Policy Implementation, DNS Verification, Email Routing Configuration, Domain Verification
+- Email Platforms: Zoho Mail Setup, Google Workspace (Gmail) Configuration, Microsoft 365 (Outlook) Configuration
+
+# IT Projects in Telecommunications
+- Network Infrastructure Deployment: Enterprise Network Design & Implementation, ISP Network Deployment, LAN/WAN Infrastructure Implementation, MPLS Network Deployment, Wireless Broadband Network Deployment, Campus Network Design, Branch Office Network Connectivity
+- Wireless Network Projects: Point-to-Point (PtP) Wireless Links, Point-to-Multipoint (PtMP) Deployments, Wi-Fi Network Design & Optimization, Last-Mile Connectivity Solutions, Microwave Radio Installation, LTE Network Support, Fixed Wireless Access (FWA), Wireless Network Capacity Planning.
+- Cloud & Infrastructure Projects: Cloud Migration for Telecom Applications, AWS Infrastructure Deployment, Virtual Server Deployment,Linux Server Administration, High Availability Infrastructure, Disaster Recovery Implementation, Cloud Monitoring & Alerting, Infrastructure Automation
+- Network Security Projects: Firewall Deployment & Hardening, VPN Implementation, Network Segmentation, Security Audits, Vulnerability Assessments, Identity & Access Management (IAM), Security Monitoring
+- Systems Administration: Linux Server Deployment, Windows Server Administration, DNS & DHCP Configuration, Active Directory Administration, Email Server Deployment, and Web Server (Nginx/Apache) Deployment
+- Network Monitoring & Operations: Network Operations Center (NOC) Monitoring, LibreNMS Deployment, Zabbix Monitoring, PRTG Network Monitor, SolarWinds Monitoring, Grafana Dashboards, Prometheus Monitoring, and Network Performance Optimization.
+
+
+Add consultation request form and email address (contact@timothyolubiyi.name.ng) and WhatsApp link
+......................................................................................................................
+
+This section to be replace with Certifications Secction in the index.html
+
+## Skills & Tools Section
+Replace the Professional Certifications Section with Skills and Tools Section then add brief introduction. Add the following in sub sections with auto slides transistion. add icons to them all.
+
+# DevOps 
+- Jenkin
+- Terraform
+- Ansible
+- Jenkins
+- GitHub Actions
+- GitLab CI/CD
+- AWS CodePipeline
+- ArgoCD
+- Helm
+
+# Security
+- Splunk (SIEM)
+- Nessus 
+- Qualys 
+- Acunetix 
+- HostedScan 
+- Wireshark 
+- Nmap
+- Burp Suite
+
+# Cloud Security
+- AWS IAM
+- VPC 
+- Security Groups
+- CloudTrail
+- CloudWatch 
+- S3 Bucket Policies
+- Security Hub
+
+# Containerization
+- Docker
+- Kubernetes
+- Amazon ECS/EKS
+
+# Scripting & Automation
+- Python
+- Bash
+- n8n Workflow
+- Infrastructure as Code (IaC)
+
+# Monitoring & Ops
+- Nagios
+- Prometheus
+- LibreNMS
+- Grafana
+- CloudWatch 
+- Splunk 
+- Amazon CloudWatch
+- AWS CloudTrail
+- Proxmox
+- Qualys
+
+# OS & Virtualization
+- Linux (Ubuntu/CentOS)
+- Windows Server
+- VMware
+- VirtualBox
+- Proxmox,
+- Kali Linux.

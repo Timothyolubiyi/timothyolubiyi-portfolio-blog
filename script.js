@@ -1,6 +1,7 @@
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
 const htmlElement = document.documentElement;
+const bodyElement = document.body;
 
 // Check for saved theme preference or system preference
 const savedTheme = localStorage.getItem('theme');
@@ -10,6 +11,10 @@ const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
 // Set initial theme
 if (initialTheme === 'dark') {
     htmlElement.setAttribute('data-theme', 'dark');
+    bodyElement.classList.add('dark-mode');
+} else {
+    htmlElement.setAttribute('data-theme', 'light');
+    bodyElement.classList.remove('dark-mode');
 }
 
 // Theme toggle listener
@@ -19,29 +24,46 @@ if (themeToggle) {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
         htmlElement.setAttribute('data-theme', newTheme);
+
+        // Update body class for backward compatibility
+        if (newTheme === 'dark') {
+            bodyElement.classList.add('dark-mode');
+        } else {
+            bodyElement.classList.remove('dark-mode');
+        }
+
         localStorage.setItem('theme', newTheme);
     });
 }
 
 // Mobile Navigation Toggle
-const navToggle = document.getElementById('navToggle');
+const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const overlay = document.querySelector('.overlay');
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+}
+
+if (overlay) {
+    overlay.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('active');
     });
 }
 
 // Close mobile menu when link is clicked
-const navLinks = document.querySelectorAll('.nav-link');
-const hamburger = document.querySelector(".hamburger");
-const navbar = document.querySelector(".navbar");
+const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('active');
     });
 });
 
@@ -158,4 +180,6 @@ if (skillsCarousel) {
         skillsCarousel.addEventListener('mouseleave', resetAutoSlide);
     }
 }
+
+
 

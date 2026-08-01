@@ -6,29 +6,40 @@
     <title>Consulting Services | Timothy Olubiyi</title>
     <meta name="description" content="Professional consulting services in cloud security, DevOps, infrastructure, and IT solutions. Timothy Olubiyi - IT Project Manager, Cloud/DevOps Engineer, Cybersecurity Specialist.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consulting.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo"><img src="images/logo.png" alt="Timothy Olubiyi" /></div>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
-                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                <li><a href="index.html#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="consulting.html" class="nav-link">Consulting</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button></li>
-            </ul>
-        </div>
-    </nav>
+    <header class="navbar">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Timothy Olubiyi">
+        </a>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#skills">Skills & Tools</a></li>
+            <li><a href="consulting.html">Consulting</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+
+        <!-- Hamburger Menu -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
 
     <!-- Hero Section -->
     <section class="hero consulting-hero">
@@ -37,7 +48,7 @@
                 <h1 class="hero-title">Professional Consulting Services</h1>
                 <p class="hero-subtitle">Enterprise Security • Cloud & DevOps • Infrastructure Solutions</p>
                 <p class="hero-description">Comprehensive consulting and implementation services specializing in cloud security, infrastructure automation, and enterprise IT solutions. Drawing on 9+ years of hands-on experience to help organizations strengthen their technology foundation.</p>
-                <div class="hero-cta">
+                <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">Explore Services</a>
                     <a href="#contact-form" class="btn btn-secondary">Request Consultation</a>
                 </div>
@@ -45,9 +56,27 @@
         </div>
     </section>
 
+    <!-- Professional Heading Section -->
+    <section class="section consulting-header-section">
+        <div class="container">
+            <div class="consulting-header">
+                <div class="header-line header-line-left"></div>
+                <div class="header-content">
+                    <h2 class="header-title">Professional Consulting Services</h2>
+                    <p class="header-tagline">Enterprise Security • Cloud & DevOps • Infrastructure Solutions</p>
+                    <p class="header-description">Comprehensive consulting and implementation services specializing in cloud security, infrastructure automation, and enterprise IT solutions. Drawing on 9+ years of hands-on experience to help organizations strengthen their technology foundation.</p>
+                </div>
+                <div class="header-line header-line-right"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="section services">
         <div class="container">
+            <div class="services-header-image">
+                <img src="images/consulting_services.png" alt="Professional Consulting Services">
+            </div>
             <h2 class="section-title">My Consulting Services</h2>
             <p class="section-subtitle">Specialized consulting and implementation support across five core service areas, tailored to your organization's unique infrastructure and security needs.</p>
 
@@ -374,7 +403,7 @@
                         </div>
                         <h3>Email</h3>
                         <p>Reach out with your project details and requirements</p>
-                        <a href="mailto:contact@timothyolubiyi.name.ng" class="btn btn-primary">contact@timothyolubiyi.name.ng</a>
+                        <a href="mailto:contact@timothyolubiyi.name.ng" class="btn btn-primary">contact@timothyolubiyi</a>
                     </div>
 
                     <div class="consultation-card">
@@ -383,7 +412,7 @@
                         </div>
                         <h3>WhatsApp</h3>
                         <p>Quick messaging for urgent inquiries and support</p>
-                        <a href="https://chat.whatsapp.com/JyqNhqVBnwg7x7uCtNDKtV" class="btn btn-primary" target="_blank">Join Community</a>
+                        <a href="https://chat.whatsapp.com/IASxEsdZqz47n0N4PIYxrf" class="btn btn-primary" target="_blank">Consulting Connect</a>
                     </div>
 
                     <div class="consultation-card">
@@ -466,7 +495,7 @@
     <!-- Why Choose Me Section -->
     <section class="section why-choose">
         <div class="container">
-            <h2 class="section-title">Why Work With Me</h2>
+            <h2 class="section-title">Why Partner With Me</h2>
 
             <div class="why-choose-grid">
                 <div class="why-choose-card">
@@ -559,43 +588,66 @@
         </div>
     </footer>
 
-    <!-- Navigation Toggle Script -->
+    <!-- Navigation and Theme Toggle Script -->
     <script>
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const overlay = document.querySelector('.overlay');
 
-        navToggle.addEventListener('click', () => {
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
         });
 
         // Close menu when a link is clicked
-        document.querySelectorAll('.nav-link').forEach(link => {
+        document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                overlay.classList.remove('active');
             });
+        });
+
+        // Close menu when overlay is clicked
+        overlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
         });
 
         // Theme toggle
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
         });
 
         // Load saved theme
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark-mode');
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌙';
         }
 
         // Form submission handling
-        document.getElementById('consultationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const subject = `Consultation Request - ${formData.get('service')}`;
-            const body = `Name: ${formData.get('name')}\nCompany: ${formData.get('company')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}\n\nProject Details:\n${formData.get('message')}`;
+        const consultationForm = document.getElementById('consultationForm');
+        if (consultationForm) {
+            consultationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const subject = `Consultation Request - ${formData.get('service')}`;
+                const body = `Name: ${formData.get('name')}\nCompany: ${formData.get('company')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}\n\nProject Details:\n${formData.get('message')}`;
 
-            window.location.href = `mailto:contact@timothyolubiyi.name.ng?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        });
+                window.location.href = `mailto:contact@timothyolubiyi.name.ng?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            });
+        }
     </script>
 </body>
 </html>

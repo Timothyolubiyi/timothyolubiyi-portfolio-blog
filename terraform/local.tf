@@ -6,7 +6,7 @@ locals {
 
   s3_bucket_name = "${local.project}-${local.environment}-${data.aws_caller_identity.current.account_id}"
 
-  certificate_arn = var.certificate_arn != "" ? var.certificate_arn : aws_acm_certificate.portfolio[0].arn
+  certificate_arn = var.certificate_arn
 
   common_tags = merge(
     var.tags,
@@ -14,7 +14,6 @@ locals {
       Project     = local.project
       Environment = local.environment
       Region      = local.region
-      CreatedDate = timestamp()
       ManagedBy   = "Terraform"
     }
   )

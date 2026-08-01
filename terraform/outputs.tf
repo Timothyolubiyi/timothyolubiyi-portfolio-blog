@@ -36,7 +36,7 @@ output "github_actions_role_arn" {
 output "deployment_commands" {
   description = "Commands to run for deployment"
   value = {
-    upload_to_s3 = "aws s3 sync dist/ s3://${aws_s3_bucket.portfolio.id} --delete"
+    upload_to_s3  = "aws s3 sync dist/ s3://${aws_s3_bucket.portfolio.id} --delete"
     invalidate_cf = "aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.portfolio.id} --paths '/*'"
   }
 }

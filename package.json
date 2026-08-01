@@ -4,9 +4,10 @@
   "description": "Timothy Olubiyi Professional Portfolio & Blog",
   "main": "index.html",
   "scripts": {
-    "build": "mkdir -p dist && cp index.html dist/ && cp style.css dist/ && cp script.js dist/ && cp -r images dist/",
-    "dev": "npx http-server . -p 8000"
-  },
+  "clean": "rimraf dist",
+  "build": "npm run clean && shx mkdir dist && shx cp index.html dist && shx cp consulting.html dist && shx cp style.css dist && shx cp consulting.css dist && shx cp script.js dist && shx cp -r images dist",
+  "dev": "npx http-server . -p 8000"
+},
   "keywords": [
     "portfolio",
     "devops",
@@ -17,5 +18,9 @@
   "license": "MIT",
   "dependencies": {
     "playwright": "^1.62.1"
+  },
+  "devDependencies": {
+    "rimraf": "^6.1.3",
+    "shx": "^0.4.0"
   }
 }

@@ -7,16 +7,29 @@ resource "aws_cloudfront_origin_access_control" "portfolio" {
 }
 
 resource "aws_cloudfront_distribution" "portfolio" {
+  aliases = [
+    var.domain_name,
+    "www.${var.domain_name}"
+  ]
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  comment             = "Timothy-Olubiyi-Portfolio"
+  default_root_object = "index.html"
+  price_class         = "PriceClass_All"
+  wait_for_deployment = true
+  retain_on_delete    = false
+  http_version        = "http2and3"
+
+  web_acl_id = var.web_acl_id
+
   origin {
     domain_name              = aws_s3_bucket.portfolio.bucket_regional_domain_name
     origin_id                = "s3-portfolio"
     origin_access_control_id = aws_cloudfront_origin_access_control.portfolio.id
+
   }
 
-  enabled             = true
-  is_ipv6_enabled     = true
-  default_root_object = "index.html"
-  http_version        = "http2and3"
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -24,7 +37,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = aws_cloudfront_cache_policy.index_html.id
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     viewer_protocol_policy = "redirect-to-https"
   }
@@ -36,7 +49,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = aws_cloudfront_cache_policy.index_html.id
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     viewer_protocol_policy = "redirect-to-https"
   }
@@ -48,7 +61,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     viewer_protocol_policy = "https-only"
   }
@@ -60,55 +73,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
-
-    viewer_protocol_policy = "https-only"
-  }
-
-  ordered_cache_behavior {
-    path_pattern     = "*.png"
-    allowed_methods  = ["GET", "HEAD"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "s3-portfolio"
-    compress         = false
-
-    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
-
-    viewer_protocol_policy = "https-only"
-  }
-
-  ordered_cache_behavior {
-    path_pattern     = "*.jpg"
-    allowed_methods  = ["GET", "HEAD"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "s3-portfolio"
-    compress         = false
-
-    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
-
-    viewer_protocol_policy = "https-only"
-  }
-
-  ordered_cache_behavior {
-    path_pattern     = "*.gif"
-    allowed_methods  = ["GET", "HEAD"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "s3-portfolio"
-    compress         = false
-
-    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
-
-    viewer_protocol_policy = "https-only"
-  }
-
-  ordered_cache_behavior {
-    path_pattern     = "*.svg"
-    allowed_methods  = ["GET", "HEAD"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "s3-portfolio"
-    compress         = true
-
-    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     viewer_protocol_policy = "https-only"
   }
@@ -140,14 +105,6 @@ resource "aws_cloudfront_distribution" "portfolio" {
     minimum_protocol_version       = "TLSv1.2_2021"
   }
 
-  dynamic "logging_config" {
-    for_each = var.enable_logging && length(aws_s3_bucket.logs) > 0 ? [1] : []
-    content {
-      include_cookies = false
-      bucket          = aws_s3_bucket.logs[0].bucket_domain_name
-      prefix          = "cloudfront-logs/"
-    }
-  }
 
   tags = merge(
     local.common_tags,

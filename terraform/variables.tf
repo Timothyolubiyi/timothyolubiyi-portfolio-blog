@@ -87,3 +87,9 @@ variable "use_route53" {
   type        = bool
   default     = true
 }
+
+variable "web_acl_id" {
+  description = "AWS WAF Web ACL ARN attached to CloudFront"
+  type        = string
+  default     = ""
+}

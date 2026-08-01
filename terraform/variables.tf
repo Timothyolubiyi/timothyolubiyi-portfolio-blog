@@ -5,7 +5,7 @@ variable "aws_region" {
 
   validation {
     condition     = can(regex("^[a-z]{2}-[a-z]+-\\d{1}$", var.aws_region))
-    error_message = "AWS region must be a valid region identifier"
+    error_message = "AWS region must be a valid region identifier."
   }
 }
 
@@ -22,7 +22,7 @@ variable "environment" {
 
   validation {
     condition     = contains(["production", "staging", "development"], var.environment)
-    error_message = "Environment must be production, staging, or development"
+    error_message = "Environment must be production, staging, or development."
   }
 }
 
@@ -33,7 +33,7 @@ variable "project_name" {
 
   validation {
     condition     = can(regex("^[a-z0-9-]+$", var.project_name))
-    error_message = "Project name must contain only lowercase letters, numbers, and hyphens"
+    error_message = "Project name must contain only lowercase letters, numbers, and hyphens."
   }
 }
 
@@ -43,7 +43,7 @@ variable "domain_name" {
 
   validation {
     condition     = can(regex("^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]?(\\.[a-z0-9][a-z0-9-]{0,61}[a-z0-9]?)*\\.[a-z]{2,}$", var.domain_name))
-    error_message = "Domain name must be a valid domain"
+    error_message = "Domain name must be a valid domain name."
   }
 }
 

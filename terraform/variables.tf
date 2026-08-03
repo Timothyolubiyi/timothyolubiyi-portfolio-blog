@@ -87,3 +87,13 @@ variable "web_acl_id" {
   type        = string
   default     = ""
 }
+
+variable "github_owner" {
+  type    = string
+  default = "Timothyolubiyi"
+}
+
+variable "github_repo" {
+  type    = string
+  default = "timothyolubiyi-portfolio-blog"
+}

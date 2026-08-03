@@ -21,7 +21,6 @@ provider "aws" {
   region = var.aws_region
 }
 
-data "aws_caller_identity" "current" {}
 
 data "aws_route53_zone" "primary" {
   count = var.use_route53 ? 1 : 0

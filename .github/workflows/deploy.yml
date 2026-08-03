@@ -47,6 +47,7 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
+          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
 
       - name: Terraform Format Check
         working-directory: terraform
@@ -54,6 +55,7 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
+          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
 
 
       - name: Terraform Validate
@@ -62,6 +64,7 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
+          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
 
   build:
     name: Build React Application
@@ -132,6 +135,7 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
+          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
 
       - name: Terraform Apply
         working-directory: terraform
@@ -139,6 +143,7 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
+          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
 
       - name: Upload Static Assets
         run: |

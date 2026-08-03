@@ -46,18 +46,22 @@ jobs:
         run: terraform init -input=false
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
+          TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
 
       - name: Terraform Format Check
         working-directory: terraform
         run: terraform fmt -recursive -check
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
+          TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
+
 
       - name: Terraform Validate
         working-directory: terraform
         run: terraform validate
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
+          TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
 
   build:
     name: Build React Application
@@ -127,12 +131,14 @@ jobs:
         run: terraform init -input=false
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
+          TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
 
       - name: Terraform Apply
         working-directory: terraform
         run: terraform apply -auto-approve
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
+          TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
 
       - name: Upload Static Assets
         run: |

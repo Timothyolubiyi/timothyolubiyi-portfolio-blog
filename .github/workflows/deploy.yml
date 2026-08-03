@@ -49,6 +49,7 @@ jobs:
         run: |
           echo "OIDC request URL available: ${ACTIONS_ID_TOKEN_REQUEST_URL:+yes}"
           echo "OIDC request token available: ${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+yes}"
+          
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4

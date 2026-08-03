@@ -112,15 +112,22 @@ resource "aws_s3_bucket" "logs" {
   )
 }
 
+resource "aws_s3_bucket_ownership_controls" "logs" {
+  count  = var.enable_logging ? 1 : 0
+  bucket = aws_s3_bucket.logs[0].id
 
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
 
 resource "aws_s3_bucket_acl" "logs" {
   count  = var.enable_logging ? 1 : 0
   bucket = aws_s3_bucket.logs[0].id
   acl    = "log-delivery-write"
+
+  depends_on = [aws_s3_bucket_ownership_controls.logs]
 }
-
-
 
 resource "aws_s3_bucket_public_access_block" "logs" {
   count  = var.enable_logging ? 1 : 0

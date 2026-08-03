@@ -44,14 +44,20 @@ jobs:
       - name: Terraform Init
         working-directory: terraform
         run: terraform init -input=false
+        env:
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
 
       - name: Terraform Format Check
         working-directory: terraform
         run: terraform fmt -recursive -check
+        env:
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
 
       - name: Terraform Validate
         working-directory: terraform
         run: terraform validate
+        env:
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
 
   build:
     name: Build React Application
@@ -119,10 +125,14 @@ jobs:
       - name: Terraform Init
         working-directory: terraform
         run: terraform init -input=false
+        env:
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
 
       - name: Terraform Apply
         working-directory: terraform
         run: terraform apply -auto-approve
+        env:
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
 
       - name: Upload Static Assets
         run: |

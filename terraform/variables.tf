@@ -9,12 +9,6 @@ variable "aws_region" {
   }
 }
 
-variable "aws_profile" {
-  description = "AWS CLI profile name"
-  type        = string
-  default     = "default"
-}
-
 variable "environment" {
   description = "Deployment environment"
   type        = string

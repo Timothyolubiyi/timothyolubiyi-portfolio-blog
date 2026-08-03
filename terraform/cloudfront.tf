@@ -21,8 +21,6 @@ resource "aws_cloudfront_distribution" "portfolio" {
   retain_on_delete    = false
   http_version        = "http2and3"
 
-  web_acl_id = var.web_acl_id
-
   origin {
     domain_name              = aws_s3_bucket.portfolio.bucket_regional_domain_name
     origin_id                = "s3-portfolio"

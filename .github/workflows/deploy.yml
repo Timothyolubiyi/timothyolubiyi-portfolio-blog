@@ -49,7 +49,18 @@ jobs:
         run: |
           echo "OIDC request URL available: ${ACTIONS_ID_TOKEN_REQUEST_URL:+yes}"
           echo "OIDC request token available: ${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+yes}"
-          
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Show OIDC Claims
+        shell: bash
+        run: |
+          TOKEN=$(curl -s \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sts.amazonaws.com" | jq -r '.value')
+
+          echo "$TOKEN" | cut -d '.' -f2 | base64 -d | jq .
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4

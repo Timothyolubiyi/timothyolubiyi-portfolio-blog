@@ -48,6 +48,7 @@ jobs:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
           TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
+          TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
       - name: Terraform Format Check
         working-directory: terraform
@@ -56,6 +57,7 @@ jobs:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
           TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
+          TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
 
       - name: Terraform Validate
@@ -65,6 +67,7 @@ jobs:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
           TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
+          TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
   build:
     name: Build React Application
@@ -136,6 +139,7 @@ jobs:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
           TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
+          TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
       - name: Terraform Apply
         working-directory: terraform
@@ -144,7 +148,7 @@ jobs:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
           TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
-
+          TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
       - name: Upload Static Assets
         run: |
           aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} \

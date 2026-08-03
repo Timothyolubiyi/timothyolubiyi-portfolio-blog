@@ -37,7 +37,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
 
     viewer_protocol_policy = "redirect-to-https"
   }
@@ -49,7 +49,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    cache_policy_id = aws_cloudfront_cache_policy.index_html.id
 
     viewer_protocol_policy = "redirect-to-https"
   }
@@ -61,7 +61,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
 
     viewer_protocol_policy = "https-only"
   }
@@ -73,7 +73,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
     target_origin_id = "s3-portfolio"
     compress         = true
 
-    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    cache_policy_id = aws_cloudfront_cache_policy.static_assets.id
 
     viewer_protocol_policy = "https-only"
   }

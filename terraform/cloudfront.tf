@@ -32,43 +32,43 @@ resource "aws_cloudfront_distribution" "portfolio" {
 
 
   default_cache_behavior {
-  allowed_methods        = ["GET", "HEAD"]
-  cached_methods         = ["GET", "HEAD"]
-  target_origin_id       = "s3-portfolio"
-  compress               = true
-  cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
-  viewer_protocol_policy = "redirect-to-https"
-}
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    target_origin_id       = "s3-portfolio"
+    compress               = true
+    cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    viewer_protocol_policy = "redirect-to-https"
+  }
 
-ordered_cache_behavior {
-  path_pattern           = "/index.html"
-  allowed_methods        = ["GET", "HEAD"]
-  cached_methods         = ["GET", "HEAD"]
-  target_origin_id       = "s3-portfolio"
-  compress               = true
-  cache_policy_id        = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
-  viewer_protocol_policy = "redirect-to-https"
-}
+  ordered_cache_behavior {
+    path_pattern           = "/index.html"
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    target_origin_id       = "s3-portfolio"
+    compress               = true
+    cache_policy_id        = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+    viewer_protocol_policy = "redirect-to-https"
+  }
 
-ordered_cache_behavior {
-  path_pattern           = "*.js"
-  allowed_methods        = ["GET", "HEAD"]
-  cached_methods         = ["GET", "HEAD"]
-  target_origin_id       = "s3-portfolio"
-  compress               = true
-  cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
-  viewer_protocol_policy = "https-only"
-}
+  ordered_cache_behavior {
+    path_pattern           = "*.js"
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    target_origin_id       = "s3-portfolio"
+    compress               = true
+    cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    viewer_protocol_policy = "https-only"
+  }
 
-ordered_cache_behavior {
-  path_pattern           = "*.css"
-  allowed_methods        = ["GET", "HEAD"]
-  cached_methods         = ["GET", "HEAD"]
-  target_origin_id       = "s3-portfolio"
-  compress               = true
-  cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
-  viewer_protocol_policy = "https-only"
-}
+  ordered_cache_behavior {
+    path_pattern           = "*.css"
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    target_origin_id       = "s3-portfolio"
+    compress               = true
+    cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    viewer_protocol_policy = "https-only"
+  }
   custom_error_response {
     error_code            = 404
     response_code         = 200

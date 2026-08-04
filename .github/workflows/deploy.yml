@@ -47,7 +47,6 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
-          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
           TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
       - name: Terraform Format Check
@@ -56,7 +55,6 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
-          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
           TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
 
@@ -66,7 +64,6 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
-          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
           TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
   build:
@@ -138,7 +135,6 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
-          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
           TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
 
       - name: Terraform Apply
@@ -147,7 +143,6 @@ jobs:
         env:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_use_route53: ${{ secrets.USE_ROUTE53 }}
-          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
           TF_VAR_web_acl_id: ${{ secrets.WEB_ACL_ARN }}
       - name: Upload Static Assets
         run: |

@@ -39,10 +39,10 @@ resource "aws_cloudfront_distribution" "portfolio" {
     cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
     viewer_protocol_policy = "redirect-to-https"
 
-      function_association {
-    event_type   = "viewer-request"
-    function_arn = aws_cloudfront_function.url_rewrite.arn
-  }
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
   }
 
   ordered_cache_behavior {
